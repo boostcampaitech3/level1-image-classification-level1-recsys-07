@@ -113,6 +113,17 @@ def getDataloader(dataset, train_idx, valid_idx, batch_size, num_workers):
     return train_loader, val_loader
 
 
+def load_model(model_path, num_classes, device):
+    model_cls = getattr(import_module("model"), args.model)
+    model = model_cls(
+        num_classes=num_classes
+    )
+
+    model.load_state_dict(torch.load(model_path, map_location=device))
+
+    return model
+
+
 def k_fold(data_dir, model_dir, output_dir, args) :
     seed_everything(args.seed)
 
@@ -288,7 +299,7 @@ def k_fold(data_dir, model_dir, output_dir, args) :
                     best_val_loss = val_loss
                 if val_acc > best_val_acc:
                     print("New best model for val accuracy! saving the model..")
-                    torch.save(model.module.state_dict(), f"{save_dir}/best.pth")
+                    torch.save(model.module.state_dict(), f"{save_dir}/cv{i+1}.pth")
                     best_val_acc = val_acc
                     counter = 0
                 else:
@@ -307,6 +318,7 @@ def k_fold(data_dir, model_dir, output_dir, args) :
                 logger.add_figure("results", figure, epoch)
                 
         # 각 fold에서 생성된 모델을 사용해 Test 데이터를 예측합니다. 
+        model = load_model(f"{save_dir}/cv{i+1}.pth", num_classes, device).to(device)
         all_predictions = []
         with torch.no_grad():
             for images in test_loader:
@@ -346,7 +358,7 @@ if __name__ == '__main__':
     parser.add_argument("--resize", nargs="+", type=int, default=[128, 96], help='resize size for image when training')
     parser.add_argument('--batch_size', type=int, default=64, help='input batch size for training (default: 64)')
     parser.add_argument('--model', type=str, default='BaseModel', help='model type (default: BaseModel)')
-    parser.add_argument('--optimizer', type=str, default='Adam', help='optimizer type (default: Adam)')
+    parser.add_argument('--optimizer', type=str, default='SGD', help='optimizer type (default: SGD)')
     parser.add_argument('--lr', type=float, default=1e-3, help='learning rate (default: 1e-3)')
     parser.add_argument('--criterion', type=str, default='cross_entropy', help='criterion type (default: cross_entropy)')
     parser.add_argument('--lr_decay_step', type=int, default=20, help='learning rate scheduler deacy step (default: 20)')
