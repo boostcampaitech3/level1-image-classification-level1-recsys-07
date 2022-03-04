@@ -54,7 +54,7 @@ COVID-19의 확산으로 인해 공공 장소에서의 마스크 착용 여부�
 # 수행 결과
 - 탐색적 분석 및 전처리 (학습데이터 소개)
     - 데이터의 분포 조사
-![enter image description here](https://github.com/boostcampaitech3/level1-image-classification-level1-recsys-07/blob/main/assets/images.png)
+![enter image description here](https://github.com/boostcampaitech3/level1-image-classification-level1-recsys-07/blob/main/assets/image.png)
          - 60대 이상의 데이터가 매우 적은 것을 확인할 수 있음
          - 특히 60대 이상의 데이터가 60세만 있음
 - 모델 개요
