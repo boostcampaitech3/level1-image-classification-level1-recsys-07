@@ -61,13 +61,16 @@ COVID-19의 확산으로 인해 공공 장소에서의 마스크 착용 여부�
 	- Vision Tranformer (ViT) 기반
 		- NLP Task에서 주로 사용되었던 Transformer를 Image patch들의 sequence에 적용한 모델
 		- Patch Embedding과 Transformer를 통해 Class 정보와 나뉜 이미지 영역에 Attention이 가능하며 Self-Attention 메커니즘을 통해 Global 한 영역의 처리가 가능하다
-		- 사용 알고리즘 : cutmix, mixup, k fold ensemble, batch accumulation, early stopping, test time augmentation
+		- 사용 알고리즘: vit_tiny_patch16_224, vit_small_patch32_224, vit_base_patch16_224, vit_large_patch16_224, deit_base_patch16_224, swin_base_patch4_window7_224, vit_small_r26_s32_224_in21k, vit_base_r50_s16_224_in21k
+		- 성능개선 방법 : cutmix, mixup, k fold ensemble, batch accumulation, early stopping, test time augmentation
 	- EfficientNet 기반
 		- 모델의 깊이, 너비, 입력 이미지의 크기를 효율적으로 조절하는 compound scaling 방법을 제안한 모델
-		- 사용 알고리즘 : mixup, batch accumulation, early stopping
+		- 사용 알고리즘 : resnet18, resnet34, resnet26, resnet50, resnet18d, resnet34d, resnet26d, skresnet18
+		- 성능개선 방법 :mixup, batch accumulation, early stopping
 	- Resnet 기반
  		- VGGnet을 기반으로 한 모델, 층의 깊이가 깊어질수록 발생하는 기울기 소실/ 폭발문제를 skip connection을 이용한 residual learning을 통해 해결
-		- 사용 알고리즘 : cutmix, mixup, batch accumulation, early stopping
+		- 사용 알고리즘 : efficientnet_b0, efficientnet_b1, efficientnet_b3, efficientnet_b5, efficientnet_b7, efficientnetv2_rw_t, efficientnetv2_rw_s, efficientnetv2_rw_m
+		- 성능개선 방법 : cutmix, mixup, batch accumulation, early stopping
 - 모델 선정 및 분석
     - timm 모듈을 활용하여, 데이터를 고정시키고, 해당하는 데이터에 가장 잘 맞는 모델  선택
 ![enter image description here](https://github.com/boostcampaitech3/level1-image-classification-level1-recsys-07/blob/main/assets/7.png)
