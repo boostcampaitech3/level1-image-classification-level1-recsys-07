@@ -28,13 +28,13 @@
 - 카메라로 촬영한 사람 얼굴 이미지의 마스크 착용 여부 / 나이 / 성별를 판단하는 Task
 - 나이, 성별, 마스크 유무를 기준으로 18개의 라벨 분류하기
 ![enter image description here](https://github.com/boostcampaitech3/level1-image-classification-level1-recsys-07/blob/main/assets/1.png)
-## 프로젝트 개요(프로젝트 구현 내용, 컨셉, 교육 내용과의 관련성 등)
+## 프로젝트 개요
 COVID-19의 확산으로 인해 공공 장소에서의 마스크 착용 여부의 중요성이 더해짐에 따라 사람 얼굴의 이미지만으로 마스크 착용 여부, 나이, 성별 분류가 가능한 모델을 구현하고자 한다
-## 활용 장비 및 재료(개발 환경, 협업 tool 등)
+## 활용 장비 및 재료
 - vscode, jupyter notebook
 - v100 서버
 - 구글공유드라이브, github
-## 프로젝트 구조 및 사용 데이터셋의 구조도(연관도)
+## 프로젝트 구조 및 사용 데이터셋의 구조도
 ![enter image description here](https://github.com/boostcampaitech3/level1-image-classification-level1-recsys-07/blob/main/assets/2.png)
 ## 기대 효과
 - **기술가치**
